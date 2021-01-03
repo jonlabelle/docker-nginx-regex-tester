@@ -142,5 +142,5 @@ Here is a screen shot of the PHP page with the results:
 ## Usage
 
 1. Run `docker-compose up -d` to build the image and start a container.
-2. Open your web browser to <http://localhost:3000/regextester.php>.
+2. Open your web browser to <http://localhost/regextester.php>.
 3. Enter required information then press the _Test_ button.
