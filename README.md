@@ -139,11 +139,8 @@ Here is a screen shot of the PHP page with the results:
 - `/regextester/start.sh` - The start script specified in the Dockerfile to start NGINX and Unit and configure Unit.
 - `/regextester/unitphp.config` - The Unit configuration.
 
-#### Setup
+## Usage
 
-- From /nginx-regex-tester: `# docker-compose up -d`
-
-#### Running the tester
-
-- Display the web page in a browser: `http://<docker host name>/regextester.php`
-- Enter the required information and press the _Test_ button
+1. Run `docker-compose up -d` to build the image and start a container.
+2. Open your web browser to <http://localhost:3000/regextester.php>.
+3. Enter required information then press the _Test_ button.
