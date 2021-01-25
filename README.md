@@ -27,9 +27,11 @@ upstream regextester {
 
 server {
     listen 80;
-    location / {
+
+    location / { # Included so start.sh can see that NGINX is running
         root /usr/share/nginx/html;
     }
+
     location ~ \.php$ {
         proxy_pass http://regextester;
     }
@@ -64,9 +66,11 @@ generated configuration file will be:
 ```nginx
 server {
     listen 9000;
+
     location / {
         return 200 "Match not found\n";
     }
+
     location ~* (.*)/(.*).php$ {
         return 200 "Match found. Capture Groups 1: $i 2: $2\n]";
     }
@@ -87,7 +91,9 @@ For a map, the NGINX configuration files will be of the form:
 
  server {
      listen 9000;
+
      set $variable "<value to set>";
+
      location / {
         return 200 "$value\n";
     }
@@ -106,7 +112,9 @@ generated configuration file will be:
 
  server {
      listen 9000;
+
      set $variable "hello.php";
+
      location / {
         return 200 "$value\n";
     }
@@ -125,7 +133,9 @@ configuration file will be:
 
  server {
      listen 9000;
+
      set $variable "hello.php";
+
      location / {
         return 200 "$value\n";
     }
@@ -142,5 +152,5 @@ Here is a screen shot of the PHP page with the results:
 ## Usage
 
 1. Run `docker-compose up -d` to build the image and start a container.
-2. Open your web browser to <http://localhost/regextester.php>.
+2. Open your web browser to <http://127.0.0.1/regextester.php>.
 3. Enter required information then press the _Test_ button.
