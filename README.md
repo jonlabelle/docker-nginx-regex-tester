@@ -51,9 +51,11 @@ For a location it will be of the form:
 ```nginx
 server {
     listen 9000;
+
     location / {
         return 200 "Match not found\n";
     }
+
     location ~ <regex> {
         return 200 "Match found [Capture Group(s) 1: $i 2: $i ...]\n";
     }
